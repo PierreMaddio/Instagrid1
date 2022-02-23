@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomLeftButton: UIButton!
     @IBOutlet weak var bottomRightButton: UIButton!
     
-    // 3 buttons for the main grid layout
+    // 3 buttons to choose the main grid's layout
     @IBOutlet weak var layout1Button: UIButton!
     @IBOutlet weak var layout2Button: UIButton!
     @IBOutlet weak var layout3Button: UIButton!
@@ -29,6 +29,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    // Changing the layout
+    
+    @IBAction func layout1ButtonTouched(_ sender: Any) {
+    }
+    
+    @IBAction func layout2ButtonTouched(_ sender: Any) {
+    }
+    
+    @IBAction func layout3ButtonTouched(_ sender: Any) {
+    }
+    
+    
+    
 }
 
