@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -21,11 +21,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-4U-aFV" userLabel="Title">
-                                <rect key="frame" x="85" y="10" width="150" height="40"/>
+                                <rect key="frame" x="132" y="54" width="150" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="nyc-41-ePX"/>
                                     <constraint firstAttribute="height" constant="40" id="wtN-Bn-YoN"/>
@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="LAI-YZ-edE" userLabel="ArrowToSwipe">
-                                <rect key="frame" x="152.5" y="75" width="15" height="15"/>
+                                <rect key="frame" x="199.5" y="239" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="BYC-N0-twU"/>
                                     <constraint firstAttribute="width" secondItem="LAI-YZ-edE" secondAttribute="height" multiplier="1:1" id="b2g-sy-g7d"/>
@@ -43,13 +43,13 @@
                                 <variation key="heightClass=compact" image="Arrow Left"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzG-Su-53u" userLabel="TextToSwipe">
-                                <rect key="frame" x="80" y="95" width="160.5" height="29"/>
+                                <rect key="frame" x="127" y="259" width="160.5" height="29"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeK-4l-c3o" userLabel="MainGridView">
-                                <rect key="frame" x="10" y="134" width="300" height="300"/>
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R8f-9j-rgb" userLabel="MainGrid">
                                         <rect key="frame" x="10" y="10" width="280" height="280"/>
@@ -105,7 +105,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2zU-gn-BSu">
-                                <rect key="frame" x="20" y="458" width="280" height="80"/>
+                                <rect key="frame" x="67" y="752" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLs-9z-5bY">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -154,6 +154,8 @@
                             <constraint firstItem="vXb-4U-aFV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NEt-xD-cnU"/>
                             <constraint firstItem="2zU-gn-BSu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QHO-C2-MZ0"/>
                             <constraint firstItem="KeK-4l-c3o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RMm-5b-vuL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2zU-gn-BSu" secondAttribute="trailing" constant="30" id="Wne-yV-aMW"/>
+                            <constraint firstItem="2zU-gn-BSu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y5K-18-3Mc"/>
                             <constraint firstItem="vXb-4U-aFV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="YUz-BV-FxU"/>
                             <constraint firstItem="KeK-4l-c3o" firstAttribute="top" secondItem="rzG-Su-53u" secondAttribute="bottom" constant="10" id="ZIb-WX-g0O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2zU-gn-BSu" secondAttribute="bottom" constant="30" id="i5e-Ld-Xgs"/>
@@ -161,6 +163,20 @@
                             <constraint firstItem="rzG-Su-53u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wOC-cx-AvI"/>
                             <constraint firstItem="rzG-Su-53u" firstAttribute="top" secondItem="LAI-YZ-edE" secondAttribute="bottom" constant="5" id="xXl-AQ-7DZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Wne-yV-aMW"/>
+                                <exclude reference="Y5K-18-3Mc"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="Wne-yV-aMW"/>
+                                <exclude reference="i5e-Ld-Xgs"/>
+                                <exclude reference="QHO-C2-MZ0"/>
+                                <include reference="Y5K-18-3Mc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="arrowToSwipe" destination="LAI-YZ-edE" id="YX7-Mw-mX9"/>

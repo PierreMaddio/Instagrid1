@@ -61,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				FAED7FC827B7B86600994147 /* Supporting Files */,
-				FAED7FC927B7B88000994147 /* Model */,
 				FAED7FCA27B7B88A00994147 /* View */,
 				FAED7FCB27B7B89300994147 /* Controller */,
 				FAED7FC227B7B7AD00994147 /* Info.plist */,
@@ -80,13 +79,6 @@
 				FAED7FBD27B7B7AD00994147 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FAED7FC927B7B88000994147 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		FAED7FCA27B7B88A00994147 /* View */ = {
