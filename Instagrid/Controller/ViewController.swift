@@ -20,14 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomRightButton: UIButton!
     
     // 3 buttons to choose the main grid's layout
-    // TODO renommer button
-    @IBOutlet weak var layout1Button: UIButton!
-    @IBOutlet weak var layout2Button: UIButton!
-    @IBOutlet weak var layout3Button: UIButton!
+    @IBOutlet weak var firstGridButton: UIButton!
+    @IBOutlet weak var secondGridButton: UIButton!
+    @IBOutlet weak var thirdGridButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        didSelectGridButton(.secondGrid)
+        manageGridView(.secondGrid)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -38,20 +38,69 @@ class ViewController: UIViewController {
         }
     }
     
-    // UIDevice.current.orientation.isLandscape ? self.textToSwipe.text = "Swipe left to share" : self.textToSwipe.text = "Swipe up to share"
-    
     // Changing the layout
-    
-    @IBAction func layout1ButtonTouched(_ sender: Any) {
-        
+    @IBAction func firstGridAction(_ sender: Any) {
+        didSelectGridButton(.firstGrid)
+        manageGridView(.firstGrid)
     }
     
-    @IBAction func layout2ButtonTouched(_ sender: Any) {
+    @IBAction func secondGridAction(_ sender: Any) {
+        didSelectGridButton(.secondGrid)
+        manageGridView(.secondGrid)
     }
     
-    @IBAction func layout3ButtonTouched(_ sender: Any) {
-        
+    @IBAction func thirdGridAction(_ sender: Any) {
+        didSelectGridButton(.thirdGrid)
+        manageGridView(.thirdGrid)
     }
+    
+    /// manage the display of the image "Selected"
+    private func didSelectGridButton(_ button: GridView) {
+        switch button {
+        case .firstGrid:
+            firstGridButton.setImage(UIImage(named: "Selected"), for: .normal)
+            secondGridButton.setImage(nil, for: .normal)
+            thirdGridButton.setImage(nil, for: .normal)
+            
+        case .secondGrid:
+            firstGridButton.setImage(nil, for: .normal)
+            secondGridButton.setImage(UIImage(named: "Selected"), for: .normal)
+            thirdGridButton.setImage(nil, for: .normal)
+            
+        case .thirdGrid:
+            firstGridButton.setImage(nil, for: .normal)
+            secondGridButton.setImage(nil, for: .normal)
+            thirdGridButton.setImage(UIImage(named: "Selected"), for: .normal)
+        }
+    }
+    
+    /// manage the display of the main grid
+    private func manageGridView(_ view: GridView) {
+        switch view {
+        case .firstGrid:
+            topLeftButton.isHidden = false
+            topRightButton.isHidden = true
+            bottomLeftButton.isHidden = false
+            bottomRightButton.isHidden = false
+            
+        case .secondGrid:
+            topLeftButton.isHidden = false
+            topRightButton.isHidden = false
+            bottomLeftButton.isHidden = false
+            bottomRightButton.isHidden = true
+            
+        case .thirdGrid:
+            topLeftButton.isHidden = false
+            topRightButton.isHidden = false
+            bottomLeftButton.isHidden = false
+            bottomRightButton.isHidden = false
+        }
+    }
+    
+    @IBAction func topLeftButtonAction(_ sender: Any) {
+        topLeftButton.setImage(UIImage(named: "Selected"), for: .normal)
+    }
+    
     
     
     

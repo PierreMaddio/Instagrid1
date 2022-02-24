@@ -70,6 +70,9 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="topLeftButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ui1-Ob-nTE"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIR-Zj-x05">
                                                         <rect key="frame" x="166.33333333333331" y="0.0" width="156.33333333333331" height="156.33333333333334"/>
@@ -126,7 +129,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="layout1ButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KrC-xK-pOL"/>
+                                            <action selector="firstGridAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lDp-Yi-e23"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eK-l9-SfB">
@@ -142,7 +145,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="Selected" backgroundImage="Layout 2"/>
                                         <connections>
-                                            <action selector="layout2ButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JN0-pC-KwP"/>
+                                            <action selector="secondGridAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufe-8h-dlS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ok-64-KAg">
@@ -158,7 +161,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <connections>
-                                            <action selector="layout3ButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gom-Ds-Kvb"/>
+                                            <action selector="thirdGridAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7R-ba-XY5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -211,11 +214,11 @@
                         <outlet property="arrowToSwipe" destination="LAI-YZ-edE" id="YX7-Mw-mX9"/>
                         <outlet property="bottomLeftButton" destination="3EZ-OW-8t3" id="TGp-oh-1dt"/>
                         <outlet property="bottomRightButton" destination="onN-5E-GQH" id="5vI-86-aZF"/>
-                        <outlet property="layout1Button" destination="jLs-9z-5bY" id="71m-Sw-SQN"/>
-                        <outlet property="layout2Button" destination="7eK-l9-SfB" id="yRS-Qi-F2V"/>
-                        <outlet property="layout3Button" destination="6Ok-64-KAg" id="gOA-ow-o9E"/>
+                        <outlet property="firstGridButton" destination="jLs-9z-5bY" id="ukg-DE-OGY"/>
                         <outlet property="mainGridView" destination="KeK-4l-c3o" id="J1o-aI-zWd"/>
+                        <outlet property="secondGridButton" destination="7eK-l9-SfB" id="oAq-KY-d9F"/>
                         <outlet property="textToSwipe" destination="rzG-Su-53u" id="bfS-L2-ijL"/>
+                        <outlet property="thirdGridButton" destination="6Ok-64-KAg" id="iDl-Om-zbx"/>
                         <outlet property="topLeftButton" destination="MBH-Dv-d0X" id="RpY-Q0-Gif"/>
                         <outlet property="topRightButton" destination="cIR-Zj-x05" id="Fsu-NT-HgL"/>
                     </connections>
