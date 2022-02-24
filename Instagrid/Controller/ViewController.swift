@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomRightButton: UIButton!
     
     // 3 buttons to choose the main grid's layout
+    // TODO renommer button
     @IBOutlet weak var layout1Button: UIButton!
     @IBOutlet weak var layout2Button: UIButton!
     @IBOutlet weak var layout3Button: UIButton!
@@ -37,15 +38,19 @@ class ViewController: UIViewController {
         }
     }
     
+    // UIDevice.current.orientation.isLandscape ? self.textToSwipe.text = "Swipe left to share" : self.textToSwipe.text = "Swipe up to share"
+    
     // Changing the layout
     
     @IBAction func layout1ButtonTouched(_ sender: Any) {
+        
     }
     
     @IBAction func layout2ButtonTouched(_ sender: Any) {
     }
     
     @IBAction func layout3ButtonTouched(_ sender: Any) {
+        
     }
     
     
