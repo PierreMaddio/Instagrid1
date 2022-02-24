@@ -29,6 +29,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape{
+            self.textToSwipe.text = "Swipe left to share"
+        }else{
+            self.textToSwipe.text = "Swipe up to share"
+        }
+    }
+    
     // Changing the layout
     
     @IBAction func layout1ButtonTouched(_ sender: Any) {
