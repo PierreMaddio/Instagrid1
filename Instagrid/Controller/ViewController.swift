@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Vars
+    
     @IBOutlet weak var arrowToSwipe: UIImageView!
     @IBOutlet weak var textToSwipe: UILabel!
     
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstGridButton: UIButton!
     @IBOutlet weak var secondGridButton: UIButton!
     @IBOutlet weak var thirdGridButton: UIButton!
+    
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
