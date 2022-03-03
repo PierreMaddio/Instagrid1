@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - Vars
+    // MARK: - Outlets
     
     @IBOutlet weak var arrowToSwipe: UIImageView!
     @IBOutlet weak var textToSwipe: UILabel!
@@ -26,7 +26,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondGridButton: UIButton!
     @IBOutlet weak var thirdGridButton: UIButton!
     
-    // MARK: - Methods
+    // MARK: - Properties
+    
+    
+    
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +45,8 @@ class ViewController: UIViewController {
             self.textToSwipe.text = "Swipe up to share"
         }
     }
+    
+    // MARK: - Methods
     
     // Changing the layout
     @IBAction func firstGridAction(_ sender: Any) {
@@ -58,7 +64,7 @@ class ViewController: UIViewController {
         manageGridView(.thirdGrid)
     }
     
-    /// manage the display of the image "Selected"
+    // manage the display of the image "Selected"
     private func didSelectGridButton(_ button: GridView) {
         switch button {
         case .firstGrid:
@@ -78,7 +84,7 @@ class ViewController: UIViewController {
         }
     }
     
-    /// manage the display of the main grid
+    // manage the display of the main grid
     private func manageGridView(_ view: GridView) {
         switch view {
         case .firstGrid:
