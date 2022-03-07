@@ -79,6 +79,9 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="topRightButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G1Y-ph-hv7"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -90,12 +93,18 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="bottomLeftButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b1s-qp-32C"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onN-5E-GQH">
                                                         <rect key="frame" x="166.33333333333331" y="0.0" width="156.33333333333331" height="156.33333333333334"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="bottomRightButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oXs-is-9yi"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

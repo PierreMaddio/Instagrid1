@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        didSelectGridButton(.secondGrid)
+        selectGridButton(.secondGrid)
         manageGridView(.secondGrid)
     }
     
@@ -50,22 +50,22 @@ class ViewController: UIViewController {
     
     // Changing the layout
     @IBAction func firstGridAction(_ sender: Any) {
-        didSelectGridButton(.firstGrid)
+        selectGridButton(.firstGrid)
         manageGridView(.firstGrid)
     }
     
     @IBAction func secondGridAction(_ sender: Any) {
-        didSelectGridButton(.secondGrid)
+        selectGridButton(.secondGrid)
         manageGridView(.secondGrid)
     }
     
     @IBAction func thirdGridAction(_ sender: Any) {
-        didSelectGridButton(.thirdGrid)
+        selectGridButton(.thirdGrid)
         manageGridView(.thirdGrid)
     }
     
     // manage the display of the image "Selected"
-    private func didSelectGridButton(_ button: GridView) {
+    private func selectGridButton(_ button: GridView) {
         switch button {
         case .firstGrid:
             firstGridButton.setImage(UIImage(named: "Selected"), for: .normal)
@@ -108,11 +108,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func topLeftButtonAction(_ sender: Any) {
-        topLeftButton.setImage(UIImage(named: "Selected"), for: .normal)
+
+    }
+    
+    @IBAction func topRightButtonAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func bottomLeftButtonAction(_ sender: Any) {
+        
+    }
+        
+    @IBAction func bottomRightButtonAction(_ sender: Any) {
+        
     }
     
     
-    
-    
 }
+
+
 
