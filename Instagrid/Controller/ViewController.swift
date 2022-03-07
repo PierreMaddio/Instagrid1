@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Photos
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Outlets
     
@@ -28,7 +29,10 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    
+    var topLeftButtonSelected = false
+    var topRightButtonSelected = false
+    var bottomLeftButtonSelected = false
+    var bottomRightButtonSelected = false
     
     // MARK: - LifeCycle
     
@@ -36,6 +40,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         selectGridButton(.secondGrid)
         manageGridView(.secondGrid)
+        checkAuthorizationOfPhotos()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -108,19 +113,89 @@ class ViewController: UIViewController {
     }
     
     @IBAction func topLeftButtonAction(_ sender: Any) {
-
+        presentGaleriesOfPhotos()
+        topLeftButtonSelected = true
+        topRightButtonSelected = false
+        bottomLeftButtonSelected = false
+        bottomRightButtonSelected = false
     }
     
     @IBAction func topRightButtonAction(_ sender: Any) {
-        
+        presentGaleriesOfPhotos()
+        topLeftButtonSelected = false
+        topRightButtonSelected = true
+        bottomLeftButtonSelected = false
+        bottomRightButtonSelected = false
     }
     
     @IBAction func bottomLeftButtonAction(_ sender: Any) {
-        
+        presentGaleriesOfPhotos()
+        topLeftButtonSelected = false
+        topRightButtonSelected = false
+        bottomLeftButtonSelected = true
+        bottomRightButtonSelected = false
     }
         
     @IBAction func bottomRightButtonAction(_ sender: Any) {
-        
+        presentGaleriesOfPhotos()
+        topLeftButtonSelected = false
+        topRightButtonSelected = false
+        bottomLeftButtonSelected = false
+        bottomRightButtonSelected = true
+    }
+    
+    // Photo Library Permission
+    private func checkAuthorizationOfPhotos() {
+        PHPhotoLibrary.requestAuthorization { _ in }
+    }
+    
+    // Check the status of the authorization
+    // DispatchQueue.main.async -> to switch from a thread X to the main thread, use to run a code of UIKit components
+    private func presentGaleriesOfPhotos() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        if status == .authorized {
+            DispatchQueue.main.async {
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                    let imagePickerController = UIImagePickerController()
+                    imagePickerController.delegate = self
+                    imagePickerController.sourceType = .photoLibrary
+                    self.present(imagePickerController, animated: true, completion: nil)
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(
+                    title: "We were unable to load your album groups. Sorry!",
+                    message: "You can enable access in Privacy Settings",
+                    preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { _ in
+                    if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(settingsURL)
+                    }
+                }))
+                self.present(alert, animated: true)
+            }
+        }
+    }
+    
+    // method of the UIImagePickerControllerDelegate protocol
+    // detect select image from galeries
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        if topLeftButtonSelected {
+            topLeftButton.setImage(image, for: .normal)
+        }
+        if topRightButtonSelected {
+            topRightButton.setImage(image, for: .normal)
+        }
+        if bottomLeftButtonSelected {
+            bottomLeftButton.setImage(image, for: .normal)
+        }
+        if bottomRightButtonSelected {
+            bottomRightButton.setImage(image, for: .normal)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     
