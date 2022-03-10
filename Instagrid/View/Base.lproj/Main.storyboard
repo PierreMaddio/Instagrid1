@@ -226,6 +226,7 @@
                         <outlet property="firstGridButton" destination="jLs-9z-5bY" id="ukg-DE-OGY"/>
                         <outlet property="mainGridView" destination="KeK-4l-c3o" id="J1o-aI-zWd"/>
                         <outlet property="secondGridButton" destination="7eK-l9-SfB" id="oAq-KY-d9F"/>
+                        <outlet property="swipeStackView" destination="VI1-7t-f5C" id="2Rm-dP-Cyi"/>
                         <outlet property="textToSwipe" destination="rzG-Su-53u" id="bfS-L2-ijL"/>
                         <outlet property="thirdGridButton" destination="6Ok-64-KAg" id="iDl-Om-zbx"/>
                         <outlet property="topLeftButton" destination="MBH-Dv-d0X" id="RpY-Q0-Gif"/>

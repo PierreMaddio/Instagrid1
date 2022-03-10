@@ -27,12 +27,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var secondGridButton: UIButton!
     @IBOutlet weak var thirdGridButton: UIButton!
     
+    @IBOutlet weak var swipeStackView: UIStackView!
+    
+    
     // MARK: - Properties
     
     var topLeftButtonSelected = false
     var topRightButtonSelected = false
     var bottomLeftButtonSelected = false
     var bottomRightButtonSelected = false
+    
+    // Lazy var, allows instantiation of property only (when we start use it in the code)
+    // to access the lazy variable and change the direction of the swipe (Landscape)
+    lazy var swipe: UISwipeGestureRecognizer = {
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
+        return swipe
+    }()
     
     // MARK: - LifeCycle
     
@@ -41,14 +51,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selectGridButton(.secondGrid)
         manageGridView(.secondGrid)
         checkAuthorizationOfPhotos()
+        manageSwipeConfig()
+        swipeStackView.addGestureRecognizer(swipe)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.current.orientation.isLandscape{
-            self.textToSwipe.text = "Swipe left to share"
-        }else{
-            self.textToSwipe.text = "Swipe up to share"
-        }
+        manageSwipeConfig()
     }
     
     // MARK: - Methods
@@ -198,7 +206,55 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismiss(animated: true, completion: nil)
     }
     
+    // swipe
+    // depending on the orientation configuration of the swipe and the text content
+    func manageSwipeConfig() {
+        if UIDevice.current.orientation.isLandscape{
+            self.textToSwipe.text = "Swipe left to share"
+            self.swipe.direction = .left
+        }else{
+            self.textToSwipe.text = "Swipe up to share"
+            self.swipe.direction = .up
+        }
+    }
     
+    // action of swipe
+    @objc func swipeAction() {
+        let top = CGAffineTransform(translationX: 0, y: -mainGridView.frame.maxY)
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
+            self.mainGridView.transform = top
+        }, completion: { _ in
+            self.sharedContent()
+        })
+    }
+    
+    // check all the buttons of the main grid if they contain images
+    // ac is the view that appears to share the images
+    func sharedContent() {
+        var items: [UIImage] = []
+        if let topLeftButtonImg = topLeftButton.imageView?.image {
+            items.append(topLeftButtonImg)
+        }
+        if let topRightButtonImg = topRightButton.imageView?.image {
+            items.append(topRightButtonImg)
+        }
+        if let bottomLeftButtonImg = bottomLeftButton.imageView?.image {
+            items.append(bottomLeftButtonImg)
+        }
+        if let bottomRightButtonImg = bottomRightButton.imageView?.image {
+            items.append(bottomRightButtonImg)
+        }
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        // detection of the closing of the Shared screen
+        ac.completionWithItemsHandler = { (_, completed:Bool, _ ,  _) in
+            // Do something
+            let top = CGAffineTransform(translationX: 0, y: -self.mainGridView.frame.maxY)
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
+                self.mainGridView.transform = top
+            }, completion: nil)
+        }
+        present(ac, animated: true)
+    }
 }
 
 
