@@ -14,14 +14,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var arrowToSwipe: UIImageView!
     @IBOutlet weak var textToSwipe: UILabel!
-    
     @IBOutlet weak var mainGridView: UIView!
-  
     @IBOutlet weak var topLeftButton: UIButton!
     @IBOutlet weak var topRightButton: UIButton!
     @IBOutlet weak var bottomLeftButton: UIButton!
     @IBOutlet weak var bottomRightButton: UIButton!
-    
     // 3 buttons to choose the main grid's layout
     @IBOutlet weak var firstGridButton: UIButton!
     @IBOutlet weak var secondGridButton: UIButton!
@@ -37,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var bottomLeftButtonSelected = false
     var bottomRightButtonSelected = false
     
-    // Lazy var, allows instantiation of property only (when we start use it in the code)
+    // Lazy var allows instantiation of property only when we start to use it in the code
     // to access the lazy variable and change the direction of the swipe (Landscape)
     lazy var swipe: UISwipeGestureRecognizer = {
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
@@ -209,10 +206,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // swipe
     // depending on the orientation configuration of the swipe and the text content
     func manageSwipeConfig() {
-        if UIDevice.current.orientation.isLandscape{
+        if UIDevice.current.orientation.isLandscape {
             self.textToSwipe.text = "Swipe left to share"
             self.swipe.direction = .left
-        }else{
+        } else {
             self.textToSwipe.text = "Swipe up to share"
             self.swipe.direction = .up
         }
@@ -220,9 +217,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // action of swipe
     @objc func swipeAction() {
-        let top = CGAffineTransform(translationX: 0, y: -mainGridView.frame.maxY)
+        let translation : CGAffineTransform
+        if UIDevice.current.orientation.isLandscape {
+            translation = CGAffineTransform(translationX: -mainGridView.frame.maxX, y: 0)
+        } else {
+            translation = CGAffineTransform(translationX: 0, y: -mainGridView.frame.maxY)
+        }
         UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
-            self.mainGridView.transform = top
+            self.mainGridView.transform = translation
         }, completion: { _ in
             self.sharedContent()
         })
@@ -248,9 +250,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // detection of the closing of the Shared screen
         ac.completionWithItemsHandler = { (_, completed:Bool, _ ,  _) in
             // Do something
-            let top = CGAffineTransform(translationX: 0, y: -self.mainGridView.frame.maxY)
+            let translation : CGAffineTransform
+            if UIDevice.current.orientation.isLandscape {
+                translation = CGAffineTransform(translationX: -self.mainGridView.frame.maxX, y: 0)
+            } else {
+                translation = CGAffineTransform(translationX: 0, y: -self.mainGridView.frame.maxY)
+            }
             UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
-                self.mainGridView.transform = top
+                self.mainGridView.transform = translation
             }, completion: nil)
         }
         present(ac, animated: true)
