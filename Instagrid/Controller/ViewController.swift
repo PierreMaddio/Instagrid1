@@ -35,7 +35,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var bottomRightButtonSelected = false
     
     // Lazy var allows instantiation of property only when we start to use it in the code
-    // to access the lazy variable and change the direction of the swipe (Landscape)
     lazy var swipe: UISwipeGestureRecognizer = {
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
         return swipe
@@ -248,8 +247,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         // detection of the closing of the Shared screen
-        ac.completionWithItemsHandler = { (_, completed:Bool, _ ,  _) in
-            // Do something
+        ac.completionWithItemsHandler = { (_, _, _, _) in
             let translation : CGAffineTransform
             if UIDevice.current.orientation.isLandscape {
                 translation = CGAffineTransform(translationX: -self.mainGridView.frame.maxX, y: 0)
