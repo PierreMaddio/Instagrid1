@@ -139,7 +139,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomLeftButtonSelected = true
         bottomRightButtonSelected = false
     }
-        
+    
     @IBAction func bottomRightButtonAction(_ sender: Any) {
         presentGaleriesOfPhotos()
         topLeftButtonSelected = false
@@ -232,22 +232,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // check all the buttons of the main grid if they contain images
     // ac is the view that appears to share the images
     func sharedContent() {
-        var items: [UIImage] = []
-        if let topLeftButtonImg = topLeftButton.imageView?.image {
-            items.append(topLeftButtonImg)
-        }
-        if let topRightButtonImg = topRightButton.imageView?.image {
-            items.append(topRightButtonImg)
-        }
-        if let bottomLeftButtonImg = bottomLeftButton.imageView?.image {
-            items.append(bottomLeftButtonImg)
-        }
-        if let bottomRightButtonImg = bottomRightButton.imageView?.image {
-            items.append(bottomRightButtonImg)
-        }
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        // detection of the closing of the Shared screen
-        ac.completionWithItemsHandler = { (_, _, _, _) in
+        let image = self.mainGridView.snapshot()
+        let ac = UIActivityViewController(activityItems: [image as Any], applicationActivities: nil)
+        ac.completionWithItemsHandler = UIActivityViewController.CompletionWithItemsHandler? { activityType,completed,returnedItems,activityError in
             let translation : CGAffineTransform
             if UIDevice.current.orientation.isLandscape {
                 translation = CGAffineTransform(translationX: -self.mainGridView.frame.maxX, y: 0)
@@ -261,6 +248,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(ac, animated: true)
     }
 }
+
+extension UIView {
+    func snapshot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, UIScreen.main.scale)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
 
 
 

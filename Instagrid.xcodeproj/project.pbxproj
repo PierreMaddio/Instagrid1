@@ -43,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAE3774827E2450800A89E99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA84B4E827C82616006D309C /* GridView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FAED7FA827B7B7AB00994147 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				FAED7FC827B7B86600994147 /* Supporting Files */,
+				FAE3774827E2450800A89E99 /* Model */,
 				FAED7FCA27B7B88A00994147 /* View */,
 				FAED7FCB27B7B89300994147 /* Controller */,
 				FAED7FC227B7B7AD00994147 /* Info.plist */,
@@ -95,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				FAED7FB827B7B7AB00994147 /* ViewController.swift */,
-				FA84B4E827C82616006D309C /* GridView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
